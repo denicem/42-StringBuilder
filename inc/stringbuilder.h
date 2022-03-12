@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:47:05 by dmontema          #+#    #+#             */
-/*   Updated: 2022/03/12 22:09:16 by dmontema         ###   ########.fr       */
+/*   Updated: 2022/03/12 22:14:39 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #ifndef STRINGBUILDER_H
 # define STRINGBUILDER_H
 
-# define MIN_SIZE 32
-
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -24,7 +22,6 @@ typedef struct s_stringbuilder
 {
 	char	*str;
 	int		len;
-	int		cap;
 }	t_stringbuilder;
 
 t_stringbuilder	*sb_create();
