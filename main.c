@@ -22,10 +22,18 @@ int main(void)
 	sb_append_char(sb, 'l');
 	sb_append_char(sb, 'l');
 	sb_append_char(sb, 'o');
-
+	sb_append_char(sb, ' ');
+	// sb_append_char(sb, 'W');
+	// sb_append_char(sb, 'o');
+	// sb_append_char(sb, 'r');
+	// sb_append_char(sb, 'l');
+	// sb_append_char(sb, 'd');
+	// sb_append_char(sb, '!');
+	sb_append_str(sb, "World!!!!");
 	
 	char *str = sb_get_str(sb);
-	printf("%s\n", str);
-
+	printf("%s (len: %d)\n", str, sb->len);
+	// free(str);
+	// system("leaks a.exe");
 	return (0);
 }
