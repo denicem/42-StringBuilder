@@ -26,6 +26,8 @@ int main(void)
 	
 	char *str = sb_get_str(sb);
 	printf("%s(len: %d)\n", str, sb->len);
+	if (!(*str))
+		printf("OK\n");
 	sb_destroy(sb);
 	free(str);
 	// system("leaks a.exe");
