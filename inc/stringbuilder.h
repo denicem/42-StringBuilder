@@ -17,6 +17,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_stringbuilder
 {
@@ -31,4 +32,4 @@ int		sb_append_str(t_stringbuilder *sb, char *str);
 char	*sb_get_str(t_stringbuilder *sb);
 int		sb_destroy(t_stringbuilder *sb);
 
-# endif STRINGBUILDER_H
+# endif

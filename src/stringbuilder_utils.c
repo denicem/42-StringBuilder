@@ -23,6 +23,7 @@ int	sb_append_int(t_stringbuilder *sb, int nbr)
 int	sb_append_char(t_stringbuilder *sb, char c)
 {
 	char	*newstr;
+	char 	*tmp;
 	int		old_len;
 	int		i;
 
@@ -39,8 +40,11 @@ int	sb_append_char(t_stringbuilder *sb, char c)
 		i++;
 	}
 	newstr[i] = c;
-	sb->len = i++;
-	newstr[i] = 0;
+	sb->len = ++i;
+	newstr[++i] = 0;
+	tmp = sb->str;
+	sb->str = newstr;
+	free(tmp);
 	return (0);
 }
 
@@ -57,7 +61,7 @@ char	*sb_get_str(t_stringbuilder *sb)
 	char	*res;
 	int		i;
 
-	res = calloc(sb->len + 1, sizeof(char));
+	res = calloc(sb->len, sizeof(char));
 	if (!res)
 		return (NULL);
 	i = 0;
