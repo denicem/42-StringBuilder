@@ -15,17 +15,17 @@
 int main(void)
 {
 	t_stringbuilder *sb = sb_create();
-	sb_append_char(sb, 'H');
-	sb_append_char(sb, 'e');
-	sb_append_char(sb, 'l');
-	sb_append_char(sb, 'l');
-	sb_append_char(sb, 'o');
-	sb_append_char(sb, ' ');
-	sb_append_str(sb, "World\n");
-	sb_append_int(sb, 42);
+	// sb_append_char(sb, 'H');
+	// sb_append_char(sb, 'e');
+	// sb_append_char(sb, 'l');
+	// sb_append_char(sb, 'l');
+	// sb_append_char(sb, 'o');
+	// sb_append_char(sb, ' ');
+	// sb_append_str(sb, "World\n");
+	// sb_append_int(sb, 42);
 	
 	char *str = sb_get_str(sb);
-	printf("%s (len: %d)\n", str, sb->len);
+	printf("%s(len: %d)\n", str, sb->len);
 	sb_destroy(sb);
 	free(str);
 	// system("leaks a.exe");

@@ -20,7 +20,6 @@ t_stringbuilder	*sb_create()
 	if (!sb)
 		return (NULL);
 	sb->str = calloc(1, sizeof(char));
-	sb->str = 0;
 	sb->len = 0;
 	return (sb);
 }
