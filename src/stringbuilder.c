@@ -27,5 +27,10 @@ t_stringbuilder	*sb_create()
 
 int	sb_destroy(t_stringbuilder *sb)
 {
+	free(sb->str);
+	sb->str = NULL;
+	sb->len = 0;
+	free(sb);
+	sb = NULL;
 	return (0);
 }

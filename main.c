@@ -12,8 +12,6 @@
 
 #include "inc/stringbuilder.h"
 
-
-
 int main(void)
 {
 	t_stringbuilder *sb = sb_create();
@@ -23,17 +21,13 @@ int main(void)
 	sb_append_char(sb, 'l');
 	sb_append_char(sb, 'o');
 	sb_append_char(sb, ' ');
-	// sb_append_char(sb, 'W');
-	// sb_append_char(sb, 'o');
-	// sb_append_char(sb, 'r');
-	// sb_append_char(sb, 'l');
-	// sb_append_char(sb, 'd');
-	// sb_append_char(sb, '!');
-	sb_append_str(sb, "World!!!!");
+	sb_append_str(sb, "World\n");
+	sb_append_int(sb, 42);
 	
 	char *str = sb_get_str(sb);
 	printf("%s (len: %d)\n", str, sb->len);
-	// free(str);
+	sb_destroy(sb);
+	free(str);
 	// system("leaks a.exe");
 	return (0);
 }

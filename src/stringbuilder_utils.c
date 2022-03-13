@@ -12,14 +12,6 @@
 
 #include "../inc/stringbuilder.h"
 
-int	sb_append_int(t_stringbuilder *sb, int nbr)
-{
-	(void) sb;
-	(void) nbr;
-
-	return (0);
-}
-
 int	sb_append_char(t_stringbuilder *sb, char c)
 {
 	char 	*tmp;
@@ -82,11 +74,25 @@ int	sb_append_str(t_stringbuilder *sb, char *str)
 	return (0);
 }
 
+int	sb_append_int(t_stringbuilder *sb, int nbr)
+{
+	char	*nbr_str;
+
+	nbr_str = ft_itoa(nbr);
+	if (!nbr_str)
+		return (1);
+	if (sb_append_str(sb, nbr_str))
+		return (2);
+	return (0);
+}
+
 char	*sb_get_str(t_stringbuilder *sb)
 {
 	char	*res;
 	int		i;
 
+	if (!sb)
+		return (NULL);
 	res = calloc(sb->len, sizeof(char));
 	if (!res)
 		return (NULL);
