@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 19:16:41 by dmontema          #+#    #+#             */
-/*   Updated: 2022/03/12 22:46:08 by dmontema         ###   ########.fr       */
+/*   Updated: 2022/03/27 16:40:51 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,16 @@
 
 int	sb_append_char(t_stringbuilder *sb, char c)
 {
-	char 	*tmp;
-	int		old_len;
-	int		i;
+	char	*tmp;
 	char	*newstr;
 
 	if (!c)
 		return (1);
-	newstr = calloc(sb->len + 2, sizeof(char));
+	newstr = ft_calloc(sb->len + 2, sizeof(char));
 	if (!newstr)
 		return (2);
-	i = 0;
-	old_len = sb->len;
-	while (i < old_len)
-	{
-		newstr[i] = sb->str[i];
-		i++;
-	} 
-	newstr[i] = c;
-	sb->len = ++i;
-	newstr[++i] = 0;
+	sb_copy_oldstr(sb, &newstr);
+	newstr[(sb->len)++] = c;
 	tmp = sb->str;
 	sb->str = newstr;
 	free(tmp);
@@ -42,32 +32,48 @@ int	sb_append_char(t_stringbuilder *sb, char c)
 
 int	sb_append_str(t_stringbuilder *sb, char *str)
 {
-	int		str_len;
 	char	*tmp;
 	int		i;
-	int		j;
 	char	*newstr;
 
 	if (!str)
 		return (1);
-	str_len = strlen(str);
-	newstr = calloc(sb->len + str_len + 1, sizeof(char));
+	newstr = ft_calloc(sb->len + ft_strlen(str) + 1, sizeof(char));
 	if (!newstr)
 		return (2);
+	sb_copy_oldstr(sb, &newstr);
 	i = 0;
-	while (i < sb->len)
+	while (str[i])
 	{
-		newstr[i] = sb->str[i];
+		newstr[sb->len + i] = str[i];
 		i++;
 	}
-	j = 0;
-	while (j < str_len)
+	sb->len += i;
+	tmp = sb->str;
+	sb->str = newstr;
+	free(tmp);
+	return (0);
+}
+
+int	sb_append_strn(t_stringbuilder *sb, char *str, int len)
+{
+	char	*tmp;
+	int		i;
+	char	*newstr;
+
+	if (!str)
+		return (1);
+	newstr = ft_calloc(sb->len + len + 1, sizeof(char));
+	if (!newstr)
+		return (2);
+	sb_copy_oldstr(sb, &newstr);
+	i = 0;
+	while (str[i] && i < len)
 	{
-		newstr[i + j] = str[j];
-		j++;
+		newstr[sb->len + i] = str[i];
+		i++;
 	}
-	newstr[i + j] = 0;
-	sb->len = i + j;
+	sb->len += i;
 	tmp = sb->str;
 	sb->str = newstr;
 	free(tmp);
@@ -99,7 +105,7 @@ char	*sb_get_str(t_stringbuilder *sb)
 
 	if (!sb)
 		return (NULL);
-	res = calloc(sb->len, sizeof(char));
+	res = ft_calloc(sb->len + 1, sizeof(char));
 	if (!res)
 		return (NULL);
 	i = 0;
@@ -108,6 +114,5 @@ char	*sb_get_str(t_stringbuilder *sb)
 		res[i] = sb->str[i];
 		i++;
 	}
-	res[i] = 0;
 	return (res);
 }

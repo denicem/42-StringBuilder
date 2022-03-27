@@ -6,11 +6,12 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 19:12:24 by fquist            #+#    #+#             */
-/*   Updated: 2022/03/13 19:13:28 by dmontema         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:17:36 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/stringbuilder.h"
+/*	FABI's ver. */
 
 /*	Calculating the length of the parameter nbr and returns it. */
 static int	ft_get_numlen(int nbr)
