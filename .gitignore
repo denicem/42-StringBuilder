@@ -1,2 +1,6 @@
 *.exe
 *.out
+*.o
+test
+stringbuilder.a
+main.c

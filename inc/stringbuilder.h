@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO: replace all libc funcs with libft funcs
+// TODO: replace FABIBI's version of libft funcs with own
 
 #ifndef STRINGBUILDER_H
 # define STRINGBUILDER_H
@@ -20,6 +20,9 @@
 # include <stdio.h>
 # include <string.h>
 
+#define SUCCESS 0
+#define FAILURE 1
+
 typedef struct s_stringbuilder
 {
 	char	*str;
@@ -27,8 +30,8 @@ typedef struct s_stringbuilder
 }	t_stringbuilder;
 
 t_stringbuilder	*sb_create(void);
-int				sb_destroy(t_stringbuilder *sb);
 int				sb_clear(t_stringbuilder *sb);
+int				sb_destroy(t_stringbuilder **sb);
 void			sb_copy_oldstr(t_stringbuilder *sb, char **newstr);
 
 int				sb_append_char(t_stringbuilder *sb, char c);
