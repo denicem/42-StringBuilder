@@ -37,9 +37,9 @@ int	sb_clear(t_stringbuilder *sb)
 	if (!sb->str)
 	{
 		free(sb);
-		return (FAILURE);
+		return (SB_FAILURE);
 	}
-	return (SUCCESS);
+	return (SB_SUCCESS);
 }
 
 int	sb_destroy(t_stringbuilder **sb)
@@ -49,5 +49,5 @@ int	sb_destroy(t_stringbuilder **sb)
 	(*sb)->len = 0;
 	free(*sb);
 	*sb = NULL;
-	return (SUCCESS);
+	return (SB_SUCCESS);
 }

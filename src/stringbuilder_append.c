@@ -18,16 +18,16 @@ int	sb_append_char(t_stringbuilder *sb, char c)
 	char	*newstr;
 
 	if (!c)
-		return (FAILURE);
+		return (SB_FAILURE);
 	newstr = sb_calloc(sb->len + 2, sizeof(char));
 	if (!newstr)
-		return (FAILURE);
+		return (SB_FAILURE);
 	sb_copy_oldstr(sb, &newstr);
 	newstr[(sb->len)++] = c;
 	tmp = sb->str;
 	sb->str = newstr;
 	free(tmp);
-	return (SUCCESS);
+	return (SB_SUCCESS);
 }
 
 int	sb_append_str(t_stringbuilder *sb, char *str)
@@ -37,10 +37,10 @@ int	sb_append_str(t_stringbuilder *sb, char *str)
 	char	*newstr;
 
 	if (!str)
-		return (FAILURE);
+		return (SB_FAILURE);
 	newstr = sb_calloc(sb->len + sb_strlen(str) + 1, sizeof(char));
 	if (!newstr)
-		return (FAILURE);
+		return (SB_FAILURE);
 	sb_copy_oldstr(sb, &newstr);
 	i = 0;
 	while (str[i])
@@ -52,7 +52,7 @@ int	sb_append_str(t_stringbuilder *sb, char *str)
 	tmp = sb->str;
 	sb->str = newstr;
 	free(tmp);
-	return (SUCCESS);
+	return (SB_SUCCESS);
 }
 
 int	sb_append_strn(t_stringbuilder *sb, char *str, int len)
@@ -62,10 +62,10 @@ int	sb_append_strn(t_stringbuilder *sb, char *str, int len)
 	char	*newstr;
 
 	if (!str)
-		return (FAILURE);
+		return (SB_FAILURE);
 	newstr = sb_calloc(sb->len + len + 1, sizeof(char));
 	if (!newstr)
-		return (FAILURE);
+		return (SB_FAILURE);
 	sb_copy_oldstr(sb, &newstr);
 	i = 0;
 	while (str[i] && i < len)
@@ -77,7 +77,7 @@ int	sb_append_strn(t_stringbuilder *sb, char *str, int len)
 	tmp = sb->str;
 	sb->str = newstr;
 	free(tmp);
-	return (SUCCESS);
+	return (SB_SUCCESS);
 }
 
 int	sb_append_int(t_stringbuilder *sb, int nbr)
@@ -86,14 +86,14 @@ int	sb_append_int(t_stringbuilder *sb, int nbr)
 
 	nbr_str = sb_itoa(nbr); //handle nbr over INT_MAX
 	if (!nbr_str)
-		return (FAILURE);
+		return (SB_FAILURE);
 	if (sb_append_str(sb, nbr_str))
 	{
 		free(nbr_str);
 		nbr_str = NULL;
-		return (FAILURE);
+		return (SB_FAILURE);
 	}
 	free(nbr_str);
 	nbr_str = NULL;
-	return (SUCCESS);
+	return (SB_SUCCESS);
 }

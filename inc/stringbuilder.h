@@ -18,8 +18,8 @@
 # include <stdio.h>
 # include <string.h>
 
-#define SUCCESS 0
-#define FAILURE 1
+#define SB_SUCCESS 0
+#define SB_FAILURE 1
 
 typedef struct s_stringbuilder
 {
