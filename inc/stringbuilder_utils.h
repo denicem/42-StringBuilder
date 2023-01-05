@@ -13,6 +13,8 @@
 #ifndef STRINGBUILDER_UTILS_H
 #define STRINGBUILDER_UTILS_H
 
+// TODO: move src files to own sub dir.
+
 #include <string.h>
 
 void	*sb_calloc(size_t count, size_t size);
