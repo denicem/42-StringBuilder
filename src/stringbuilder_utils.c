@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/stringbuilder.h"
+#include "../inc/stringbuilder_utils.h"
 
 void	sb_copy_oldstr(t_stringbuilder *sb, char **newstr)
 {

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb_calloc.c                                        :+:      :+:    :+:   */
+/*   stringbuilder_utils.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 16:14:16 by dmontema          #+#    #+#             */
-/*   Updated: 2023/01/02 16:14:16 by dmontema         ###   ########.fr       */
+/*   Created: 2023/01/05 16:59:21 by dmontema          #+#    #+#             */
+/*   Updated: 2023/01/05 16:59:21 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/stringbuilder.h"
-#include "../inc/stringbuilder_utils.h"
+#ifndef STRINGBUILDER_UTILS_H
+#define STRINGBUILDER_UTILS_H
 
-void	*sb_calloc(size_t count, size_t size)
-{
-	void	*res;
-	size_t	byte_size;
+#include <string.h>
 
-	byte_size = count * size;
-	res = malloc(byte_size);
-	if (res == NULL)
-		return (NULL);
-	sb_bzero(res, byte_size);
-	return (res);
-}
+void	*sb_calloc(size_t count, size_t size);
+void	sb_bzero(void *s, size_t n);
+size_t	sb_strlen(char const *s);
+char	*sb_itoa(int n);
+int		sb_numlen(int nbr);
+int		sb_pow_int(int nbr, int power);
+
+#endif

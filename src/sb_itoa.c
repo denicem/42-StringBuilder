@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/stringbuilder.h"
+#include "../inc/stringbuilder_utils.h"
 
 char	*sb_itoa(int n)
 {
