@@ -3,4 +3,3 @@
 *.o
 test
 stringbuilder.a
-main.c
