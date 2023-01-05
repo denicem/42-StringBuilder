@@ -3,10 +3,12 @@ NAME	=	stringbuilder.a
 SRCS	=	src/stringbuilder.c \
 			src/stringbuilder_append.c \
 			src/stringbuilder_utils.c \
-			src/ft_strlen.c \
-			src/ft_itoa.c \
-			src/ft_calloc.c \
-			src/ft_bzero.c
+			src/sb_strlen.c \
+			src/sb_itoa.c \
+			src/sb_calloc.c \
+			src/sb_bzero.c \
+			src/sb_numlen.c \
+			src/sb_pow_int.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -30,7 +32,7 @@ all: $(NAME)
 
 test: main.c $(NAME)
 	@printf "$(CYAN)Building test cases...$(RESET)\n"
-	@$(CC) $(CFLAGS) main.c -o test $(NAME)
+	@$(CC) $(CFLAGS) $(NAME) main.c -o test $(NAME)
 	@printf "$(GREEN)\tCOMPLETE!$(RESET)\n"
 
 $(NAME): $(OBJS)

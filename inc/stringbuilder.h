@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO: replace FABIBI's version of libft funcs with own
-
 #ifndef STRINGBUILDER_H
 # define STRINGBUILDER_H
 
@@ -40,9 +38,11 @@ int				sb_append_strn(t_stringbuilder *sb, char *str, int len);
 int				sb_append_int(t_stringbuilder *sb, int nbr);
 char			*sb_get_str(t_stringbuilder *sb);
 
-char	*ft_itoa(int n);
-size_t	ft_strlen(char const *s);
-void	*ft_calloc(size_t count, size_t size);
-void	*ft_bzero(void *s, size_t n);
+void	*sb_calloc(size_t count, size_t size);
+void	sb_bzero(void *s, size_t n);
+size_t	sb_strlen(char const *s);
+char	*sb_itoa(int n);
+int		sb_numlen(int nbr);
+int		sb_pow_int(int nbr, int power);
 
 # endif

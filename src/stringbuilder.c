@@ -16,10 +16,10 @@ t_stringbuilder	*sb_create(void)
 {
 	t_stringbuilder	*sb;
 
-	sb = ft_calloc(1, sizeof(t_stringbuilder));
+	sb = sb_calloc(1, sizeof(t_stringbuilder));
 	if (!sb)
 		return (NULL);
-	sb->str = ft_calloc(1, sizeof(char));
+	sb->str = sb_calloc(1, sizeof(char));
 	if (!sb->str)
 	{
 		free(sb);
@@ -32,7 +32,7 @@ t_stringbuilder	*sb_create(void)
 int	sb_clear(t_stringbuilder *sb)
 {
 	free(sb->str);
-	sb->str = ft_calloc(1, sizeof(char));
+	sb->str = sb_calloc(1, sizeof(char));
 	sb->len = 0;
 	if (!sb->str)
 	{

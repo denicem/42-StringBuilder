@@ -19,7 +19,7 @@ int	sb_append_char(t_stringbuilder *sb, char c)
 
 	if (!c)
 		return (FAILURE);
-	newstr = ft_calloc(sb->len + 2, sizeof(char));
+	newstr = sb_calloc(sb->len + 2, sizeof(char));
 	if (!newstr)
 		return (FAILURE);
 	sb_copy_oldstr(sb, &newstr);
@@ -38,7 +38,7 @@ int	sb_append_str(t_stringbuilder *sb, char *str)
 
 	if (!str)
 		return (FAILURE);
-	newstr = ft_calloc(sb->len + ft_strlen(str) + 1, sizeof(char));
+	newstr = sb_calloc(sb->len + sb_strlen(str) + 1, sizeof(char));
 	if (!newstr)
 		return (FAILURE);
 	sb_copy_oldstr(sb, &newstr);
@@ -63,7 +63,7 @@ int	sb_append_strn(t_stringbuilder *sb, char *str, int len)
 
 	if (!str)
 		return (FAILURE);
-	newstr = ft_calloc(sb->len + len + 1, sizeof(char));
+	newstr = sb_calloc(sb->len + len + 1, sizeof(char));
 	if (!newstr)
 		return (FAILURE);
 	sb_copy_oldstr(sb, &newstr);
@@ -84,7 +84,7 @@ int	sb_append_int(t_stringbuilder *sb, int nbr)
 {
 	char	*nbr_str;
 
-	nbr_str = ft_itoa(nbr); //handle nbr over INT_MAX
+	nbr_str = sb_itoa(nbr); //handle nbr over INT_MAX
 	if (!nbr_str)
 		return (FAILURE);
 	if (sb_append_str(sb, nbr_str))

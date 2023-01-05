@@ -35,7 +35,7 @@ char	*sb_get_str(t_stringbuilder *sb)
 	extra_mem = 0;
 	if (!sb->len)
 		extra_mem++;
-	res = ft_calloc(sb->len + extra_mem, sizeof(char));
+	res = sb_calloc(sb->len + extra_mem, sizeof(char));
 	if (!res)
 		return (NULL);
 	i = 0;
