@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/stringbuilder.h"
-#include "../inc/stringbuilder_utils.h"
+#include "stringbuilder.h"
+#include "stringbuilder_utils.h"
 
 void	*sb_calloc(size_t count, size_t size)
 {

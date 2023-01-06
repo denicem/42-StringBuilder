@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/stringbuilder.h"
-#include "../inc/stringbuilder_utils.h"
+#include "stringbuilder.h"
+#include "stringbuilder_utils.h"
 
 t_stringbuilder	*sb_create(void)
 {

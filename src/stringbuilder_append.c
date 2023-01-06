@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/stringbuilder.h"
-#include "../inc/stringbuilder_utils.h"
+#include "stringbuilder.h"
+#include "stringbuilder_utils.h"
 
 int	sb_append_char(t_stringbuilder *sb, char c)
 {

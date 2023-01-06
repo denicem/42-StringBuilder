@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb_itoa.c                                          :+:      :+:    :+:   */
+/*   sb_pow_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/03 03:20:35 by dmontema          #+#    #+#             */
-/*   Updated: 2023/01/03 03:20:35 by dmontema         ###   ########.fr       */
+/*   Created: 2023/01/02 18:21:30 by dmontema          #+#    #+#             */
+/*   Updated: 2023/01/02 18:21:30 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/stringbuilder.h"
-#include "../inc/stringbuilder_utils.h"
+#include "stringbuilder.h"
 
-char	*sb_itoa(int n)
+int	sb_pow_int(int nbr, int power)
 {
-	char	*res;
-	int		numlen;
-	int		i;
-	long	nbr;
+	int	res;
 
-	nbr = n;
-	numlen = sb_numlen(nbr);
-	res = malloc((numlen + 1) * sizeof(char));
-	if (!res)
-		return (NULL);
-	i = 0;
-	if (nbr < 0)
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	res = nbr;
+	while (power > 1)
 	{
-		res[i++] = '-';
-		nbr = -nbr;
+		res *= nbr;
+		--power;
 	}
-	while (i < numlen)
-	{
-		res[i] = (nbr / sb_pow_int(10, numlen - i - 1)) % 10 + '0';
-		++i;
-	}
-	res[i] = '\0';
 	return (res);
 }

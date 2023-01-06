@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb_pow_int.c                                       :+:      :+:    :+:   */
+/*   sb_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 18:21:30 by dmontema          #+#    #+#             */
-/*   Updated: 2023/01/02 18:21:30 by dmontema         ###   ########.fr       */
+/*   Created: 2023/01/02 16:08:02 by dmontema          #+#    #+#             */
+/*   Updated: 2023/01/02 16:08:02 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/stringbuilder.h"
+#include "stringbuilder.h"
 
-int	sb_pow_int(int nbr, int power)
+void	sb_bzero(void *s, size_t n)
 {
-	int	res;
+	unsigned char	*dest;
 
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	res = nbr;
-	while (power > 1)
+	dest = s;
+	while (n > 0)
 	{
-		res *= nbr;
-		--power;
+		*dest = '\0';
+		++dest;
+		--n;
 	}
-	return (res);
 }
