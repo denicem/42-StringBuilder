@@ -1,5 +1,5 @@
-NAME		=	stringbuilder.a
-NAME_TESTER	=	test
+NAME			=	stringbuilder.a
+NAME_EXAMPLE	=	example
 
 CC			=	gcc
 AR			=	ar rc
@@ -7,7 +7,6 @@ CC_FLAGS	=	-Wall -Wextra -Werror
 
 SRC_DIR		=	src/
 SRCS		=	$(shell find $(SRC_DIR) -name "*.c")
-# SRC_TESTER	=	./test/main.c ## TODO: main.c to own dir
 
 OBJ_DIR		=	obj/
 OBJS		=	$(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRCS))
@@ -25,12 +24,12 @@ all: $(NAME)
 
 -include $(DEPS)
 
-test: main.c $(NAME)
+example: main.c $(NAME)
 	@printf $(BLUE)"Linking library file to binary file"$(RESET)"\r"
-	@$(CC) $(CC_FLAGS) main.c -o $(NAME_TESTER) $(NAME)
+	@$(CC) $(CC_FLAGS) $(INCLUDE) main.c -o $(NAME_EXAMPLE) $(NAME)
 	@printf $(SPACE)$(GREEN)"[✓]\n"$(RESET)
 	@echo "\t\t"$(GREEN)$(BOLD)"COMPLETE!"$(RESET)"\n"
-	@printf $(MAGENTA)"\t\tName of executable: "$(RESET)$(BOLD)$(MAGENTA_BG)" $(NAME_TESTER) "$(RESET)"\n\n"
+	@printf $(MAGENTA)"\t\tName of executable: "$(RESET)$(BOLD)$(MAGENTA_BG)" $(NAME_EXAMPLE) "$(RESET)"\n\n"
 
 $(NAME): $(OBJS)
 	@printf $(BLUE)"Linking objects to a library file\r"$(RESET)
@@ -42,7 +41,7 @@ $(NAME): $(OBJS)
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 	@mkdir -p $(dir $@)
 	@printf $(BLUE)$(BOLD)"\rCompiling: "$(CYAN)"$(notdir $<)\r"
-	@$(CC) $(CC_FLAGS) -c $< -o $@
+	@$(CC) $(CC_FLAGS) $(INCLUDE) -c $< -o $@
 	@printf $(SPACE)$(GREEN)"[✓]\n"$(RESET)
 
 clean:
@@ -53,12 +52,12 @@ clean:
 fclean: clean
 	@printf $(MAGENTA)"Removing library & binary files...\r"$(RESET)
 	@rm -rf $(NAME)
-	@rm -rf $(NAME_TESTER)
+	@rm -rf $(NAME_EXAMPLE)
 	@printf $(SPACE)$(GREEN)"[✓]\n\n"$(RESET)
 
 re: fclean all
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re example
 
 # **************************************************************************** #
 #	TEXT MODIFIERS / FORMATITING CODES										   #
