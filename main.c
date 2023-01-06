@@ -30,6 +30,7 @@ int main(void)
 	// fetch constructed string from sb to str
 	str = sb_get_str(sb);
 	printf("%s\n", str);
+	printf("Size of sb: %d\n", sb->len);
 
 	// usage of sb_clear
 	sb_clear(sb); // clears content from sb -> str from sb is now empty!
