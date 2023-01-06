@@ -35,7 +35,7 @@ gcc *.c path_to_stringbuilder/stringbuilder.a
 typedef struct s_stringbuilder
 {
 	char	*str;	// the string itself
-	int		len;	// the current length of the constructed string
+	int	len;	// the current length of the constructed string
 }	t_stringbuilder;
 ```
 
